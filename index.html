@@ -20,13 +20,21 @@
         </figure>
         <ul class="unordered_list">
           <li class="linksOfNav">
-            <a href="#" class="nav_anchor">About</a>
+            <a href="#" class=
+            "nav_anchor
+            hover-effect
+            hover_effect_black
+            ">About</a>
           </li>
           <li class="linksOfNav">
-            <a href="#" class="nav_anchor">Project</a>
+            <a href="#" class="nav_anchor
+            hover-effect
+            hover_effect_black">Project</a>
           </li>
           <li class="linksOfNav">
-            <a href="#" class="nav_anchor">Contact</a>
+            <a href="#" class="nav_anchor
+            hover-effect
+            hover_effect_black">Contact</a>
           </li>
           <li class="linksOfNav">
             <a href="#" class="fas fa-adjust"></a>
@@ -64,7 +72,67 @@
       <a href="" class="scroll">
         <div class="scroll_icon clicked"></div>
       </a>
+
+      <!-- MODAL(pop up) -->
+    <div class="modal">
+      <div class="modal_half left_part">
+          <h3 class="modal_title">Here's a bit about me</h3>
+          <h4 class="modal_subtitle">Frontend Software Engineer Wannabe</h4>
+          <p class="modal_para">
+            Im a 20 year-old college drop-out and currently studying
+            <span class="purple"> front-end Development </span>.
+            <br>
+            I drop-out because college life is such a drag <b class="purple"> "mendukse!!" </b>
+          </p>
+          <div class="modal_languages">
+            <figure class="modal_language">
+              <img class="modal_language_img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                alt="">
+              <span class="language__name">HTML</span>
+            </figure>
+            <figure class="modal_language">
+              <img class="modal_language_img" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png"
+                alt="">
+              <span class="language__name">CSS</span>
+            </figure>
+            <figure class="modal_language">
+              <img class="modal_language_img" src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png"
+                alt="">
+              <span class="language__name">JavaScript</span>
+            </figure>
+            <figure class="modal_language">
+              <img class="modal_language_img"
+                src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png" alt="">
+              <span class="language__name">TypeScript</span>
+            </figure>
+          </div>
+        </div>
+      <div class="modal_half right_part">
+        <h3 class="modal_title modal_right">Let's have a chat</h3>
+        <h4 class="modal_subtitle modal_sub_right_part">I'm currently open to new opportunities</h4>
+        <form id="contact__form">
+          <div class="form_item">
+            <label class="form_item_label">Name</label>
+            <input class="input" name="user_name" type="text" required></input>
+          </div>
+          <div class="form_item">
+            <label class="form_item_label">Email</label>
+            <input class="input" name="user_email" type="email" required></input>
+          </div>
+          <div class="form_item">
+            <label class="form_item_label">Message</label>
+            <textarea class="input" name="message" type="text" required></textarea>
+          </div>
+          <button id="contact_submit" class="form_submit">
+            Send it my way
+          </button>
+        </form>
+      </div>
+    </div>
     </section>
+
+    
 
     <section id="projects">
       <div class="container">
@@ -189,26 +257,26 @@
             <a
               href=""
               class="footer_link 
-              link_hover_effect 
+              hover-effect
               link__hover-effect--white"
             >
               GitHub
             </a>
             <a
               href=""
-              class="footer_link link_hover_effect link__hover-effect--white"
+              class="footer_link hover-effect link__hover-effect--white"
             >
               LinkedIn
             </a>
             <a
               href=""
-              class="footer_link link_hover_effect link__hover-effect--white"
+              class="footer_link hover-effect link__hover-effect--white"
             >
               Contact
             </a>
             <a
               href=""
-              class="footer_link link_hover_effect link__hover-effect--white"
+              class="footer_link hover-effect link__hover-effect--white"
             >
               Resume
             </a>

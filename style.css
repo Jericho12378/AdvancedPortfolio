@@ -24,6 +24,130 @@ section {
 
   }
 
+  .hover-effect{
+    position: relative;
+  }
+  .hover-effect:after{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 0;
+    right: 0;
+    transition: all 300ms ease;
+  }
+  .hover_effect_black:after{
+    background-color: rgb(63, 62, 62)
+  }
+  .link__hover-effect--white:after{
+    background-color: white;
+  }
+
+  .hover-effect:hover:after{
+    left: 0;
+    width: 100%;
+  }
+  
+/*
+  MODAL
+*/
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1100px;
+  height: 700px;
+  box-shadow: 0 20px 80px 0 rgb(0,0,0,0.55);
+  overflow: hidden;
+  display: flex;
+  
+}
+.modal_half{
+  width: 50%;
+  padding: 40px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 300ms ease-in;
+}
+.left_part{
+  background-color: rgb(245,245,245);
+}
+.modal_title{
+  font-size: 26px;
+}
+.modal_subtitle{
+  margin: 12px 0 24px 0;
+  font-size: 14px;
+}
+.modal_para{
+  line-height: 1.55;
+}
+.modal_languages{
+    display: flex;
+    flex-wrap: wrap;
+}
+.modal_language:hover .language__name{
+  transform: scale(1);
+}
+.modal_language:hover {
+  filter: brightness(80%);
+  transform: scale(0.9);
+}
+.language__name{
+  position: absolute;
+  bottom: -10px;
+  transform: scale(0);
+  transition: all 300ms ease;
+}
+.modal_language{
+  width: 25%;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 300ms ease;
+}
+.modal_language_img{
+  width: 100%;
+}
+
+.right_part{
+  background-color: rgb(24,24,24);
+}
+.modal_right{
+  color: white;
+}
+.modal_sub_right_part{
+  color: white;
+}
+.form_item_label{
+  color: white;
+}
+.form_item{
+  margin-bottom: 24px;
+}
+.input{
+  background-color: rgb(24,24,24);
+  border: none;
+  border-bottom: solid purple;
+  width: 100%;
+  color: white;
+  margin-top: 24px;
+  outline: none;
+}
+.form_submit{
+  font-size: 20px;
+  background-color: purple;
+  border: none;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 24px;
+}
 
 /*
     NAVIGATION
