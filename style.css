@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
+  html{
+    scroll-behavior: smooth;
+  }
   
 .unordered_list{
     display: flex;
@@ -21,7 +24,6 @@ a{
 section {
     background-color: rgb(245, 245, 245);
     transition: all 300ms ease;
-
   }
 
   .hover-effect{
@@ -47,7 +49,47 @@ section {
     left: 0;
     width: 100%;
   }
-  
+  nav
+  .scroll
+  .header{
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms 800ms;
+  }
+
+  .modal_opened nav,
+  .modal_opened .scroll,
+  .modal_opened .header{
+    opacity: 1;
+    visibility: hidden;
+    transition: all 400ms;
+  }
+
+  /*
+    DARK THEME
+  */
+  .darkMode .title,
+  .darkMode .section_title,
+  .darkMode .project_sub_title,
+  .darkMode .nav_anchor,
+  .darkMode .fa-adjust,
+  .darkMode .header_para{
+    color: white;
+  }
+  .darkMode section{
+    background-color: #242424;
+  }
+  .darkMode #my_logo{
+    filter: none;
+  }
+  .darkMode .scroll_icon:after,
+  .darkMode .hover_effect_black:after
+  {
+    background-color: white;
+  }
+  .darkMode .purple{
+    color: rgb(226, 24, 226);
+  }
 /*
   MODAL
 */
@@ -59,11 +101,25 @@ section {
   width: 90%;
   max-width: 1100px;
   height: 700px;
-  box-shadow: 0 20px 80px 0 rgb(0,0,0,0.55);
   overflow: hidden;
   display: flex;
-  
+  visibility: hidden;
+  z-index: -1;
+  transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
 }
+
+.modal_opened .modal{
+  box-shadow: 0 20px 80px 0 rgb(0,0,0,0.55);
+  visibility: visible;
+  z-index:  60;
+}  
+
+.modal_opened .left_part,
+.modal_opened .right_part
+{
+  transform: translate(0%);
+}
+
 .modal_half{
   width: 50%;
   padding: 40px 72px;
@@ -75,6 +131,7 @@ section {
 }
 .left_part{
   background-color: rgb(245,245,245);
+  transform: translateX(-110%);
 }
 .modal_title{
   font-size: 26px;
@@ -117,7 +174,9 @@ section {
 }
 
 .right_part{
+  position: relative;
   background-color: rgb(24,24,24);
+  transform: translateX(110%);
 }
 .modal_right{
   color: white;
@@ -134,19 +193,90 @@ section {
 .input{
   background-color: rgb(24,24,24);
   border: none;
-  border-bottom: solid purple;
+  border-bottom: solid white;
   width: 100%;
   color: white;
   margin-top: 24px;
   outline: none;
 }
+input:hover, textarea:hover{
+  border-color: purple;
+}
+input:focus, textarea:focus{
+  border-color: purple;
+}
 .form_submit{
-  font-size: 20px;
   background-color: purple;
-  border: none;
-  padding: 8px 12px;
+  border: 2px solid purple;
   color: white;
-  border-radius: 24px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 240px;
+  padding: 12px 24px;
+  font-size: 20px;
+  transition: all 300ms ease;
+  
+}
+.form_submit:hover{
+  border-color: #fff;
+  background-color: transparent;
+  
+}
+.form_submit:active{
+  background-color: purple;
+  color: purple;
+}
+textarea{
+  resize: vertical;
+  height: 100px;
+}
+.modal_overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; 
+  align-items: center;
+  justify-content: center;
+  z-index: -1;  
+}
+.modal_success_state{
+  color: white;
+  background-color: rgb(43, 156, 43);
+  font-size: 40px;
+  padding: 28px;
+  text-align: center;
+  font-weight: bold;
+  
+}
+.modal_loading_state{
+  background-color: rgb(24,24,24);
+  font-size: 80px;
+}
+.fa-spinner{
+  animation: spin 750ms infinite linear;
+  color: white;
+}
+@keyframes spin{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.modal_overlay_visible{
+  display: flex;
+  z-index: 1;
+}
+.exit{
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 36px;
+  z-index: 100;
 }
 
 /*
@@ -225,6 +355,7 @@ nav{
     align-content: center;
 }
 .clicked{
+  cursor: pointer;
     transition: all 300ms ease;
 }
 .clicked:hover{
@@ -287,13 +418,19 @@ nav{
   /*
     PROJECTS
   */
+  .project{
+    margin-bottom: 135px;
+  }
   .container{
-    padding: 0 50px;
+    padding: 50px 0;
     width: 100%;
+    
   }
   .row{
-    margin: 0 116px;
-    padding: 0 112px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 12px;
   }
   .section_title{
     text-align: center;
@@ -314,9 +451,7 @@ nav{
     opacity: 1;
     transform: translateY(-50%);
   }
-  .project_lists{
-    margin-bottom: 132px;
-  }
+  
   .project_wrapper:hover .project_img{
     transform: scale(1.07);
     filter:blur(5px);
@@ -372,7 +507,7 @@ nav{
     position: relative;
     background-color: #242424;
     display: flex;
-    padding: 6% 0;
+    padding: 7% 0;
   }
   .row_footer{
     display: flex;
@@ -396,3 +531,138 @@ nav{
   .footer_link{
     color:white;
   }
+  .fotter_popup {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 300ms ease;
+    color: white;
+  }
+  
+  .footer_anchor {
+    position: relative;
+  }
+  
+  .footer_anchor:hover .fotter_popup {
+    transform: translateX(60px);
+    opacity: 1;
+  }
+
+  /* 
+
+  SHAPES
+
+  shapes on the first row 
+  height = 15vh
+  
+  shapes on the second row 
+  height = 50vh
+  
+  shapes on the third row 
+  height = 80vh
+
+  shapes on the first column
+  width = 5vw
+  
+  shapes on the second column
+  width = 50vw
+
+  shapes on the third column
+  width = 80vw
+
+*/
+  .shape{
+    position: fixed;
+  }
+  .shape_0{
+    top: 15vh;
+    left: 5vw;
+  }
+  .shape_1{
+    top: 15vh;
+    left: 50vw;
+  }
+  .shape_2{
+    top: 15vh;
+    left: 80vw;
+  }
+  .shape_3{
+    top: 50vh;
+    left: 5vw;
+  }
+  .shape_4{
+    top: 50vh;
+    left: 50vw;
+  }
+  .shape_5{
+    top: 50vh;
+    left: 80vw;
+  }
+  .shape_6{
+    top: 80vh;
+    left: 5vw;
+  }
+  .shape_7{
+    top: 80vh;
+    left: 50vw;
+  }
+  .shape_8{
+    top: 80vh;
+    left: 80vw;
+  }
+
+
+  
+/* Small phones, tablets, large smart phones */
+@media (max-width: 768px) {
+  .title {
+    font-size: 80px;
+  }
+  .header_para {
+    font-size: 20px;
+  }
+  .modal {
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+    width: 100%;
+    flex-direction: column-reverse;
+    border-radius: 0;
+  }
+  .modal_half {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  
+  .title {
+    font-size: 52px;
+  }
+  .header_para {
+    font-size: 18px;
+  }
+  .linksOfNav:first-child {
+    display: none;
+  }
+  .project_para {
+    display: none;
+  }
+  .project_description {
+    left: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .project_sub_title {
+    margin-bottom: 8px;
+  }
+  .modal_half {
+    padding: 40px;
+  }
+}
